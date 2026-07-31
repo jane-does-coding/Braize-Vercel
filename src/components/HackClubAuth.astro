@@ -1,0 +1,46 @@
+---
+import PixelIcon from './PixelIcon.astro';
+---
+
+<div class="auth-block">
+  <div class="auth-row">
+    <PixelIcon name="hackclub" />
+    <div class="auth-info">
+      <strong>Hack Club Account</strong>
+      <p class="auth-status">Account connection is unavailable in this static edition.</p>
+    </div>
+    <button type="button" class="btn" disabled>Connect</button>
+  </div>
+</div>
+
+<style>
+  .auth-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: #fff;
+    box-shadow: inset -1px -1px var(--win-shadow), inset 1px 1px var(--win-dark-shadow);
+  }
+  .auth-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .auth-status {
+    margin: 2px 0 0;
+    font-size: 0.85rem;
+  }
+  .auth-row .btn {
+    flex-shrink: 0;
+  }
+</style>
+
+<style is:global>
+  .auth-row .pixel-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    image-rendering: pixelated;
+  }
+</style>

@@ -1,0 +1,101 @@
+---
+import Layout from './Layout.astro';
+import TopNav from '../components/TopNav.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`${frontmatter.title} - Braize Guides`} description={frontmatter.description ?? 'Braize guide.'}>
+  <main class="page guide-page">
+    <TopNav active="guides" crumb={frontmatter.title} />
+
+    <article class="window guide-doc">
+      <div class="title-bar" style="--title-color: var(--hc-yellow); --title-color-2: var(--hc-green);">
+        <div class="title-bar-text">{frontmatter.title}.md</div>
+      </div>
+      <div class="guide-doc-body">
+        <a class="btn-mini" href="/guides/">Back to guides</a>
+        <slot />
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style is:global>
+  .guide-page { padding-top: 24px; }
+  .guide-doc { margin-top: 14px; }
+  .guide-doc-body {
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(241, 196, 15, 0.18), rgba(51, 214, 166, 0.12)), var(--win-face);
+  }
+  .guide-doc-body > :not(.btn-mini) {
+    max-width: 72ch;
+  }
+  .guide-doc-body h1 {
+    margin: 18px 0 10px;
+    font-size: clamp(2.4rem, 7vw, 4.4rem);
+    line-height: 0.95;
+  }
+  .guide-doc-body h2 {
+    margin-top: 28px;
+  }
+  .guide-doc-body p,
+  .guide-doc-body li {
+    font-size: 1.05rem;
+  }
+  .guide-doc-body blockquote {
+    margin: 18px 0;
+    padding: 12px 14px;
+    background: #fff4a8;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.14);
+  }
+  .guide-doc-body code {
+    padding: 1px 4px;
+    background: #fff;
+    box-shadow: inset 1px 1px #777, inset -1px -1px #fff;
+  }
+  .guide-doc-body pre {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 14px;
+    background: #050505;
+    color: #e6ffd8;
+    border: 3px solid #111;
+    box-shadow: inset -1px -1px #333, inset 1px 1px #777, 6px 6px 0 rgba(0,0,0,0.18);
+  }
+  .guide-doc-body pre code {
+    display: block;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    box-shadow: none;
+    font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', monospace;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    white-space: pre;
+  }
+  .guide-doc-body table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin: 18px 0;
+    background: #fff;
+    box-shadow: inset -1px -1px var(--win-shadow), inset 1px 1px var(--win-light-highlight), 6px 6px 0 rgba(0,0,0,0.16);
+  }
+  .guide-doc-body th,
+  .guide-doc-body td {
+    padding: 9px 12px;
+    border: 2px solid #111;
+    text-align: left;
+    vertical-align: top;
+  }
+  .guide-doc-body th {
+    font-family: var(--font-display);
+    background: #050505;
+    color: var(--hc-yellow);
+  }
+  .guide-doc-body tr:nth-child(even) td {
+    background: #e9fbff;
+  }
+</style>

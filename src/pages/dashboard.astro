@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Panel from '../components/Panel.astro';
+import TopNav from '../components/TopNav.astro';
+
+const submitUrl = 'https://forms.hackclub.com/t/osZz8LPx8Sus';
+---
+
+<Layout title="Submit - Braize" description="Submit your Braize project.">
+  <main class="page">
+    <TopNav active="dashboard" />
+
+    <Panel id="submit" title="Submit Your Project" icon="folder" color="var(--hc-orange)" color2="var(--hc-yellow)">
+      <p class="construction-note">
+        Project submissions now go through the Hack Club form.
+      </p>
+      <p>
+        Build your browser-adjacent project, keep proof somewhere safe, then send it in here.
+      </p>
+      <a class="btn btn-accent" href={submitUrl} target="_blank" rel="noopener">Open submission form</a>
+      <a class="btn" href="/shop/">See rewards</a>
+    </Panel>
+  </main>
+</Layout>
+
+<style is:global>
+  .construction-note {
+    max-width: 58ch;
+    padding: 14px 16px;
+    background: #fff4a8;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.14);
+    transform: rotate(-0.5deg);
+  }
+</style>

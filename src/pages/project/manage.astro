@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Panel from '../../components/Panel.astro';
+import TopNav from '../../components/TopNav.astro';
+
+const submitUrl = 'https://forms.hackclub.com/t/osZz8LPx8Sus';
+---
+
+<Layout title="Project Manager Under Construction - Braize" description="Braize project management is under construction.">
+  <main class="page">
+    <TopNav active="dashboard" crumb="Manage Project" />
+
+    <Panel id="manage" title="Project Manager Under Construction" icon="folder" color="var(--hc-blue)" color2="var(--hc-purple)">
+      <p class="construction-note">
+        Project management is replaced by the Hack Club submission form.
+      </p>
+      <p>Keep building, save proof, then submit through the form.</p>
+      <a class="btn btn-accent" href={submitUrl} target="_blank" rel="noopener">Open submission form</a>
+    </Panel>
+  </main>
+</Layout>
+
+<style is:global>
+  .construction-note {
+    max-width: 58ch;
+    padding: 14px 16px;
+    background: #fff4a8;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.14);
+    transform: rotate(-0.5deg);
+  }
+</style>

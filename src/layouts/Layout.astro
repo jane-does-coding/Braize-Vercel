@@ -1,0 +1,185 @@
+---
+
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const desktopIcons = [
+  { href: `${base}/#about`, label: 'About', icon: 'folder', color: 'var(--hc-blue)' },
+  { href: `${base}/#what-counts`, label: 'Counts', icon: 'check', color: 'var(--hc-green)' },
+  { href: `${base}/#how-it-works`, label: 'How', icon: 'gear', color: 'var(--hc-orange)' },
+  { href: `${base}/guides/`, label: 'Guides', icon: 'folder', color: 'var(--hc-yellow)' },
+  { href: `${base}/faq/`, label: 'FAQ', icon: 'check', color: 'var(--hc-green)' },
+  { href: `${base}/shop/`, label: 'Shop', icon: 'gift', color: 'var(--hc-purple)' },
+  { href: `${base}/#auth`, label: 'Auth', icon: 'plug', color: 'var(--hc-cyan)' },
+  { href: `${base}/#prize`, label: 'Prize', icon: 'gift', color: 'var(--hc-purple)' },
+];
+
+const iconSvgs = {
+  folder: '<rect x="1" y="4" width="6" height="2" fill="currentColor"/><rect x="1" y="6" width="14" height="8" fill="currentColor"/>',
+  check: '<rect x="2" y="8" width="2" height="2" fill="currentColor"/><rect x="4" y="10" width="2" height="2" fill="currentColor"/><rect x="6" y="12" width="2" height="2" fill="currentColor"/><rect x="8" y="10" width="2" height="2" fill="currentColor"/><rect x="10" y="8" width="2" height="2" fill="currentColor"/><rect x="12" y="6" width="2" height="2" fill="currentColor"/>',
+  gear: '<rect x="5" y="5" width="6" height="6" fill="currentColor"/><rect x="7" y="2" width="2" height="3" fill="currentColor"/><rect x="7" y="11" width="2" height="3" fill="currentColor"/><rect x="2" y="7" width="3" height="2" fill="currentColor"/><rect x="11" y="7" width="3" height="2" fill="currentColor"/>',
+  plug: '<rect x="6" y="1" width="2" height="5" fill="currentColor"/><rect x="9" y="1" width="2" height="5" fill="currentColor"/><rect x="5" y="6" width="6" height="6" fill="currentColor"/><rect x="7" y="12" width="2" height="3" fill="currentColor"/>',
+  gift: '<rect x="2" y="7" width="12" height="7" fill="currentColor"/><rect x="1" y="5" width="14" height="2" fill="currentColor"/><rect x="5" y="2" width="2" height="3" fill="currentColor"/><rect x="9" y="2" width="2" height="3" fill="currentColor"/>',
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href={`${base}/favicon.ico`} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="desk-scraps" aria-hidden="true">
+      <span class="desk-scrap scrap-build">ship weird stuff</span>
+      <span class="desk-scrap scrap-proof">notes count as proof</span>
+      <span class="desk-scrap scrap-slack">ask #braize</span>
+    </div>
+
+    <!-- floating desktop icons -->
+    <nav class="desktop-icons" aria-label="Quick jump">
+      {desktopIcons.map((item) => (
+        <a href={item.href} class="desktop-icon">
+          <svg viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" style={`color: ${item.color}`} set:html={iconSvgs[item.icon] ?? ''}></svg>
+          <span class="desktop-icon-label">{item.label}</span>
+        </a>
+      ))}
+    </nav>
+
+    <!-- BSOD easter egg -->
+    <div class="bsod" id="bsod">
+      <h2>BRAIZE</h2>
+      <p>A fatal exception 0E has occurred at 0028:C001D00D in VXD BRAIZE(01) + 0000B33F.</p>
+      <p>The current application will be terminated.</p>
+      <p>* Press any key to continue</p>
+      <p>* Press CTRL+ALT+DEL to restart the web. You will lose any unsaved code in all repositories.</p>
+      <p class="blink-cursor">_</p>
+    </div>
+
+    <slot />
+
+    <script>
+      const shortcodeEmoji = {
+        '+1': '👍', '-1': '👎', fire: '🔥', tada: '🎉', party_parrot: '🎉', sparkles: '✨', heart: '❤️', red_heart: '❤️', white_check_mark: '✅', check: '✅', heavy_check_mark: '✔️', x: '❌', warning: '⚠️', eyes: '👀', rocket: '🚀', skull: '💀', sob: '😭', joy: '😂', smile: '😄', grin: '😁', sunglasses: '😎', thinking: '🤔', thinking_face: '🤔', thumbsup: '👍', thumbsdown: '👎', clap: '👏', pray: '🙏', muscle: '💪', computer: '💻', laptop: '💻', keyboard: '⌨️', mouse: '🖱️', monitor: '🖥️', gift: '🎁', star: '⭐', zap: '⚡', bug: '🐛', memo: '📝', thread: '🧵', ship: '🚢', meow_code: '🐱', '8bit-orpheus': '🎮', 'abc-blahaj': '🦈', absolute_fire: '🔥'
+      };
+      let customEmoji = {};
+
+      function customEmojiImg(name, url) {
+        const img = document.createElement('img');
+        img.src = url;
+        img.alt = `:${name}:`;
+        img.title = `:${name}:`;
+        img.className = 'slack-emoji';
+        img.loading = 'lazy';
+        return img;
+      }
+
+      function renderSlackShortcodes(root) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+          acceptNode(node) {
+            if (!node.nodeValue.includes(':')) return NodeFilter.FILTER_REJECT;
+            const parent = node.parentElement;
+            if (!parent || parent.closest('script, style, code, pre, textarea, input')) return NodeFilter.FILTER_REJECT;
+            return NodeFilter.FILTER_ACCEPT;
+          }
+        });
+        const nodes = [];
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+
+        for (const node of nodes) {
+          const parts = node.nodeValue.split(/(:[a-z0-9_+\-]+:)/gi);
+          if (parts.length === 1) continue;
+          const frag = document.createDocumentFragment();
+          let changed = false;
+
+          for (const part of parts) {
+            const match = part.match(/^:([a-z0-9_+\-]+):$/i);
+            if (!match) {
+              frag.append(part);
+              continue;
+            }
+
+            const name = match[1];
+            if (customEmoji[name]) {
+              frag.append(customEmojiImg(name, customEmoji[name]));
+              changed = true;
+            } else if (shortcodeEmoji[name]) {
+              frag.append(shortcodeEmoji[name]);
+              changed = true;
+            } else {
+              frag.append(part);
+            }
+          }
+
+          if (changed) node.replaceWith(frag);
+        }
+      }
+
+      fetch('/api/slack')
+        .then((response) => response.ok ? response.json() : null)
+        .then((body) => {
+          customEmoji = body?.emoji || {};
+        })
+        .catch(() => {})
+        .finally(() => {
+          const render = (root = document.body) => renderSlackShortcodes(root);
+          render();
+          window.renderSlackShortcodes = render;
+
+          const observer = new MutationObserver((mutations) => {
+            for (const mutation of mutations) {
+              for (const node of mutation.addedNodes) {
+                if (node.nodeType === Node.TEXT_NODE) renderSlackShortcodes(node.parentElement || document.body);
+                if (node.nodeType === Node.ELEMENT_NODE) renderSlackShortcodes(node);
+              }
+            }
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
+        });
+
+      // BSOD easter egg: triple-click anywhere on desktop (not on windows)
+      let clickCount = 0;
+      let clickTimer;
+      document.addEventListener('click', (e) => {
+        const target = e.target;
+        if (target.closest('.window') || target.closest('.desktop-icons') || target.closest('.bsod')) return;
+        clickCount++;
+        if (clickCount === 3) {
+          clickCount = 0;
+          const bsod = document.getElementById('bsod');
+          if (bsod) {
+            bsod.classList.add('active');
+            setTimeout(() => bsod.classList.remove('active'), 4000);
+          }
+        }
+        clearTimeout(clickTimer);
+        clickTimer = window.setTimeout(() => { clickCount = 0; }, 800);
+      });
+
+      document.getElementById('bsod')?.addEventListener('click', function () {
+        this.classList.remove('active');
+      });
+
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  .slack-emoji {
+    width: 1.25em;
+    height: 1.25em;
+    vertical-align: -0.25em;
+    object-fit: contain;
+  }
+</style>

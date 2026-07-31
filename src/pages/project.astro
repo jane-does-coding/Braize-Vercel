@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Panel from '../components/Panel.astro';
+import TopNav from '../components/TopNav.astro';
+
+const submitUrl = 'https://forms.hackclub.com/t/osZz8LPx8Sus';
+---
+
+<Layout title="Project Pages Under Construction - Braize" description="Braize project pages are under construction.">
+  <main class="page">
+    <TopNav active="dashboard" crumb="Project" />
+
+    <Panel id="project" title="Project Pages Under Construction" icon="folder" color="var(--hc-purple)" color2="var(--hc-blue)">
+      <p class="construction-note">
+        Public project pages are paused while submissions use the Hack Club form.
+      </p>
+      <p>Submit finished projects through the form for now.</p>
+      <a class="btn btn-accent" href={submitUrl} target="_blank" rel="noopener">Open submission form</a>
+    </Panel>
+  </main>
+</Layout>
+
+<style is:global>
+  .construction-note {
+    max-width: 58ch;
+    padding: 14px 16px;
+    background: #fff4a8;
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.14);
+    transform: rotate(-0.5deg);
+  }
+</style>

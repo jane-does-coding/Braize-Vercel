@@ -1,0 +1,79 @@
+---
+import PixelIcon from './PixelIcon.astro';
+
+const tiers = [
+  {
+    icon: 'sticker',
+    color: 'var(--hc-cyan)',
+    title: 'it runs',
+    body: 'Submit something real that people can open. Stickers are baseline.',
+  },
+  {
+    icon: 'mouse',
+    color: 'var(--hc-green)',
+    title: 'it is useful',
+    body: 'Useful browser projects can get gear, like a good wireless mouse.',
+  },
+  {
+    icon: 'globe',
+    color: 'var(--hc-blue)',
+    title: 'it feels complete',
+    body: 'Complete projects can get bigger rewards, like a keyboard or browser subscription grant.',
+  },
+  {
+    icon: 'monitor',
+    color: 'var(--hc-purple)',
+    title: 'it is kind of wild',
+    body: 'A polished browser engine, or something equally ambitious, can get a portable monitor.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'What counts as "browser-related"?',
+    a: 'Anything tied to browsing: browser, extension, browsing buddy, tab toy, or weirder thing. If unsure, ask in Slack.',
+  },
+  {
+    q: 'Do I need experience building browser engines?',
+    a: "No. Start from wherever you are. A simple project that actually ships beats an ambitious one that doesn't.",
+  },
+  {
+    q: 'What language should I use?',
+    a: 'Any language. C++ and Rust make sense for browser engines. Extensions and buddies can be built in almost anything.',
+  },
+  {
+    q: 'What decides which prize tier I get?',
+    a: 'Reviewers look at whether it runs, how complete it feels, and how ambitious the idea is.',
+  },
+  {
+    q: "What's the deadline?",
+    a: 'Submit when ready. If a cutoff gets announced, Slack and this page will say so.',
+  },
+  {
+    q: 'How do I submit?',
+    a: 'Use the Hack Club submission form linked from the Submit page.',
+  },
+];
+---
+
+<div class="prize-block">
+  <div class="card-grid">
+    {tiers.map((tier) => (
+      <div class="card" style={`--glow: ${tier.color}`}>
+        <PixelIcon name={tier.icon} color={tier.color} />
+        <h3>{tier.title}</h3>
+        <p>{tier.body}</p>
+      </div>
+    ))}
+  </div>
+  <span class="placeholder-note">Prize tier depends on review. Working builds qualify. More complete builds can get bigger rewards.</span>
+</div>
+
+<div class="faq-list">
+  {faqs.map((item) => (
+    <details class="faq-item">
+      <summary>{item.q}</summary>
+      <p class="faq-answer">{item.a}</p>
+    </details>
+  ))}
+</div>

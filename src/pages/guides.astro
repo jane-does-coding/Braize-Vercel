@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+import TopNav from '../components/TopNav.astro';
+
+const submitUrl = 'https://forms.hackclub.com/t/osZz8LPx8Sus';
+
+const guides = [
+  {
+    title: 'Browser engine guide',
+    body: 'Casual beginner guide using Vertex as inspo: DOM, CSS, layout, paint, pixels.',
+    href: '/guides/browser-engine/',
+  },
+  {
+    title: 'Part 1: DOM + CSS',
+    body: 'Parse HTML into a tree, pull CSS out of style tags, and match simple rules to nodes.',
+    href: '/guides/browser-engine-dom-css/',
+  },
+  {
+    title: 'Part 2: Layout + Paint',
+    body: 'Turn styled nodes into layout boxes, then paint rectangles and text to the screen.',
+    href: '/guides/browser-engine-layout-paint/',
+  },
+  {
+    title: 'Browser buddy guide',
+    body: 'Build a small companion app for browser research: notes, tab context, search, and summaries.',
+    href: '/guides/browser-buddy/',
+  },
+  {
+    title: 'Browser extension guide',
+    body: 'Ship a focused extension with a manifest, popup, content script, permissions, and store-ready README.',
+    href: '/guides/browser-extension/',
+  },
+];
+---
+
+<Layout title="Guides - Braize" description="How to build and submit for Braize.">
+  <main class="page guides-page">
+    <TopNav active="guides" />
+
+    <section class="window guides-shell">
+      <div class="title-bar" style="--title-color: var(--hc-yellow); --title-color-2: var(--hc-green);">
+        <div class="title-bar-text">Guides.exe</div>
+      </div>
+      <div class="guides-body">
+        <header class="guides-hero">
+          <p class="eyebrow">HOW TO BRAIZE</p>
+          <h1>Build, prove, submit.</h1>
+          <p>No account setup. The form is the source of truth.</p>
+          <a class="btn btn-accent" href={submitUrl} target="_blank" rel="noopener">Open submission form</a>
+        </header>
+
+        <a class="featured-guide" href="/guides/browser-engine/">
+          <span class="shop-tag">featured</span>
+          <!-- Change the title card emoji shortcode here. Must exist in Slack or standard emoji. -->
+          <h2>Browser Engine Guide :meow_code:</h2>
+          <p>Beginner-friendly Vertex-inspired walkthrough: DOM, CSS, layout, paint, and pixels.</p>
+        </a>
+
+        <div class="guide-grid">
+          {guides.map((guide) => (
+            <a class="guide-card" href={guide.href}>
+              <h2>{guide.title}</h2>
+              <p>{guide.body}</p>
+            </a>
+          ))}
+        </div>
+
+        <aside class="guide-note">
+          <strong>What to submit:</strong> project link, repo or files, proof trail, short explanation, and anything reviewers need to run it.
+        </aside>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style is:global>
+  .guides-page { padding-top: 24px; }
+  .guides-shell { margin-top: 14px; }
+  .guides-body {
+    padding: 18px;
+    background: linear-gradient(135deg, rgba(241, 196, 15, 0.2), rgba(51, 214, 166, 0.14)), var(--win-face);
+  }
+  .guides-hero {
+    padding: 18px;
+    background: #050505;
+    color: #fff;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.25);
+  }
+  .guides-hero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(2.6rem, 8vw, 5rem);
+    color: #fff;
+    text-shadow: 3px 3px 0 var(--hc-green), 6px 6px 0 rgba(241, 196, 15, 0.45);
+  }
+  .guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 16px;
+    margin-top: 18px;
+  }
+  .featured-guide {
+    display: block;
+    margin-top: 18px;
+    padding: 18px;
+    text-align: center;
+    color: #111;
+    text-decoration: none;
+    background:
+      radial-gradient(circle at 24px 20px, var(--hc-red) 0 5px, transparent 6px),
+      linear-gradient(180deg, #fff, #ffe9a8);
+    box-shadow: inset -1px -1px var(--win-shadow), inset 1px 1px var(--win-light-highlight), 8px 8px 0 rgba(0,0,0,0.18);
+  }
+  .featured-guide h2 {
+    margin: 12px 0 6px;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+  .featured-guide .shop-tag {
+    margin: 0 auto;
+  }
+  .guide-card,
+  .guide-note {
+    padding: 16px;
+    color: #111;
+    text-decoration: none;
+    background: #fffbe0;
+    box-shadow: inset -1px -1px var(--win-shadow), inset 1px 1px var(--win-light-highlight), 6px 6px 0 rgba(0,0,0,0.16);
+  }
+  .guide-card:nth-child(2n) { background: #e9fbff; }
+  .guide-card h2 { margin-top: 0; }
+  .guide-note {
+    margin-top: 18px;
+    background: #ffd7df;
+    font-family: var(--font-hand);
+    font-size: 1.15rem;
+  }
+</style>

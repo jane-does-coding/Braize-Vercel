@@ -1,0 +1,43 @@
+---
+
+import PixelIcon from './PixelIcon.astro';
+
+interface Props {
+  id: string;
+  title: string;
+  icon?: string;
+  color?: string;
+  color2?: string;
+}
+
+const { id, title, icon = 'folder', color = 'var(--hc-blue)', color2 = 'var(--hc-cyan)' } = Astro.props;
+---
+
+<section id={id} class="panel window">
+  <div class="title-bar" style={`--title-color: ${color}; --title-color-2: ${color2};`}>
+    <div class="title-bar-text">
+      <PixelIcon name={icon} /> {title}
+    </div>
+    <div class="title-bar-controls">
+      <button type="button" aria-label="Minimize">&#95;</button>
+      <button type="button" aria-label="Maximize">&#9633;</button>
+      <button type="button" class="close-btn panel-close" aria-label="Close">&#10005;</button>
+    </div>
+  </div>
+  <div class="window-body">
+    <slot />
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.panel-close').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      document.body.classList.add('shake');
+      setTimeout(() => document.body.classList.remove('shake'), 400);
+
+      btn.classList.remove('wobble');
+      void btn.offsetWidth;
+      btn.classList.add('wobble');
+    });
+  });
+</script>

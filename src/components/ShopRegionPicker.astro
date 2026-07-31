@@ -1,0 +1,61 @@
+---
+import { shopRegions } from '../data/shopItems';
+---
+
+<label class="region-picker">
+  <span>Your region</span>
+  <select data-region-select>
+    {shopRegions.map((region) => <option value={region.id}>{region.name}</option>)}
+  </select>
+</label>
+
+<script>
+  const storageKey = 'braize-shop-region';
+  const select = document.querySelector('[data-region-select]');
+
+  if (select instanceof HTMLSelectElement) {
+    const regionIds = [...select.options].map((option) => option.value);
+    const savedRegion = localStorage.getItem(storageKey);
+    select.value = savedRegion && regionIds.includes(savedRegion) ? savedRegion : regionIds[0];
+
+    const updatePrices = () => {
+      document.querySelectorAll('[data-region-prices]').forEach((element) => {
+        if (!(element instanceof HTMLElement)) return;
+        const prices = JSON.parse(element.dataset.regionPrices || '{}');
+        const hours = prices[select.value] ?? prices.all;
+        element.textContent = hours == null
+          ? 'Not available in this region'
+          : `${hours} ${hours === 1 ? 'hour' : 'hours'}`;
+      });
+    };
+
+    select.addEventListener('change', () => {
+      localStorage.setItem(storageKey, select.value);
+      updatePrices();
+    });
+    updatePrices();
+  }
+</script>
+
+<style>
+  .region-picker {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    width: max-content;
+    max-width: 100%;
+    margin-top: 16px;
+    font-family: var(--font-display);
+  }
+
+  select {
+    max-width: 100%;
+    padding: 6px 28px 6px 8px;
+    border: 2px solid #fff;
+    border-radius: 0;
+    color: #fff;
+    background: #111;
+    font: inherit;
+  }
+</style>
