@@ -11,7 +11,6 @@ const tabs = [
   { href: '/guides/', label: 'Guides' },
   { href: '/faq/', label: 'FAQ' },
   { href: '/shop/', label: 'Shop' },
-  { href: '#auth', label: 'Auth' },
   { href: '#prize', label: 'Prize + FAQ' },
 ];
 ---
@@ -29,7 +28,7 @@ const tabs = [
   </div>
 
   <div class="marquee" aria-hidden="true">
-    <span>&#9733; Hack Club YSWS &#9733; Build something browser-adjacent &#9733; Keep notes &#9733; Ship a link &#9733; Ask in #braize if unsure &#9733;</span>
+    <span>&#9733; Hack Club YSWS &#9733; Build something browser-adjacent &#9733; Fill out the form &#9733; Ship a link &#9733; Ask in #braize if unsure &#9733;</span>
   </div>
 
   <div class="loading-bar" id="loading-bar">
@@ -60,7 +59,6 @@ const tabs = [
       </p>
       <ul class="hero-checklist" aria-label="Braize summary">
         <li>build it in public</li>
-        <li>keep notes and proof</li>
         <li>submit through the form</li>
         <li>get reviewed for prizes</li>
       </ul>
@@ -81,7 +79,7 @@ const tabs = [
     <aside class="hero-desk" aria-label="Braize notes">
       <div class="mini-window mini-channel">
         <div class="mini-title">#braize</div>
-        <strong><span id="braize-channel-count">Braize builders</span><span> poking at the web</span></strong>
+        <strong id="braize-channel-count" aria-live="polite">Braize builders poking at the web</strong>
         <span>ask ideas, get unstuck, show ugly demos</span>
       </div>
       <div class="sticky-card mini-why">
@@ -143,7 +141,7 @@ const tabs = [
   fetch('/api/slack')
     .then((response) => response.ok ? response.json() : null)
     .then((body) => {
-      if (channelCount && typeof body?.memberCount === 'number') channelCount.textContent = `${body.memberCount} people`;
+      if (channelCount && typeof body?.memberCount === 'number') channelCount.textContent = `${body.memberCount} people poking at the web`;
     })
     .catch(() => {});
 
@@ -435,20 +433,16 @@ const tabs = [
   }
 
   .mini-channel strong {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 10px;
+    display: block;
+    width: 100%;
+    text-align: center;
   }
 
   #braize-channel-count {
-    display: inline-grid;
-    place-items: center;
-    min-width: 72px;
-    padding: 4px 10px;
+    padding: 8px 10px;
     font-family: var(--font-display);
-    font-size: 3.6rem;
-    line-height: 0.82;
+    font-size: 1.65rem;
+    line-height: 1;
     color: var(--hc-green);
     background: #050505;
     box-shadow: inset 0 0 0 2px var(--hc-green), 5px 5px 0 rgba(0,0,0,0.16);
@@ -491,10 +485,7 @@ const tabs = [
       transform: none;
     }
 
-    #braize-channel-count {
-      font-size: 3rem;
-      min-width: 62px;
-    }
+    #braize-channel-count { font-size: 1.45rem; }
 
     .hero-checklist { grid-template-columns: 1fr; }
 

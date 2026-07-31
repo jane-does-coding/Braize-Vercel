@@ -1,6 +1,6 @@
 ---
 interface Props {
-  active: 'dashboard' | 'shop' | 'orders' | 'faq' | 'guides';
+  active: 'dashboard' | 'shop' | 'faq' | 'guides';
   crumb?: string;
 }
 
@@ -12,7 +12,6 @@ const tabs = [
   { key: 'guides', label: 'Guides', href: `${base}/guides/` },
   { key: 'faq', label: 'FAQ', href: `${base}/faq/` },
   { key: 'shop', label: 'Shop', href: `${base}/shop/` },
-  { key: 'orders', label: 'Status', href: `${base}/orders/` },
 ];
 ---
 
