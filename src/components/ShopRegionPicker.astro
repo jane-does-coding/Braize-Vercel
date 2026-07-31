@@ -16,6 +16,9 @@ import { shopRegions } from '../data/shopItems';
   if (select instanceof HTMLSelectElement) {
     const regionIds = [...select.options].map((option) => option.value);
     const savedRegion = localStorage.getItem(storageKey);
+    const grid = document.querySelector('.shop-grid');
+    const cards = grid ? [...grid.querySelectorAll('.shop-card')] : [];
+    const originalOrder = new Map(cards.map((card, index) => [card, index]));
     select.value = savedRegion && regionIds.includes(savedRegion) ? savedRegion : regionIds[0];
 
     const updatePrices = () => {
@@ -27,6 +30,18 @@ import { shopRegions } from '../data/shopItems';
           ? 'Not available in this region'
           : `${hours} ${hours === 1 ? 'hour' : 'hours'}`;
       });
+
+      if (grid) {
+        cards
+          .sort((a, b) => {
+            const aPrices = JSON.parse(a.querySelector('[data-region-prices]')?.getAttribute('data-region-prices') || '{}');
+            const bPrices = JSON.parse(b.querySelector('[data-region-prices]')?.getAttribute('data-region-prices') || '{}');
+            const aHours = aPrices[select.value] ?? aPrices.all ?? Number.POSITIVE_INFINITY;
+            const bHours = bPrices[select.value] ?? bPrices.all ?? Number.POSITIVE_INFINITY;
+            return aHours - bHours || originalOrder.get(a) - originalOrder.get(b);
+          })
+          .forEach((card) => grid.append(card));
+      }
     };
 
     select.addEventListener('change', () => {
