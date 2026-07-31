@@ -39,10 +39,10 @@ export const shopItems = [
   {
     slug: 'kingston-ssd',
     name: 'Kingston NV3 1TB 2280 NVMe SSD',
-    hours: { us: 35 },
+    hours: { us: 35 , canada: 40, mexico: 50, brazil: 70, uk: 40, ireland: 45, germany: 40, france: 40, italy: 40, spain: 40, netherlands: 40, belgium: 40, poland: 40, sweden: 45, india: 50, japan: 45, singapore: 40, australia: 45, uae: 45, 'saudi-arabia': 50, egypt: 50, 'south-africa': 50 },
     tag: 'nvme ssd',
     image: storageImage,
-    desc: 'super fast and big NVMe for all your storage needs',
+    desc: 'super fast and big NVMe for all your storage needs :ultrafastparrot:',
     details: [
       'very fast 6000 MB/s max sequential read and 5000 MB/s max sequential write!',
       'fits in anything with an M.2 NVMe slot!',
@@ -56,7 +56,7 @@ export const shopItems = [
     hours: { all: 2 },
     tag: 'hosting',
     image: hostingImage,
-    desc: 'host host host your stuff with a cool service :databaseparrot:',
+    desc: 'host host host your stuff with a cool service :vercel:',
     details: [
       'gives you 10$ of value to host host host your stuff!',
     ],
