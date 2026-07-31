@@ -5,6 +5,8 @@ import keyboardImage from '../assets/keyboard.jpg';
 import monitorImage from '../assets/monitor.jpg';
 import ramImage from '../assets/ram.webp';
 import headphoneImage from '../assets/headphones.jpg'
+import domainImage from '../assets/domain.jpg'
+import hostingImage from '../assets/server.jpg'
 
 export const shopRegions = [
   { id: 'usa', name: 'USA' },
@@ -34,6 +36,28 @@ export const shopRegions = [
 
 export const shopItems = [
   {
+    slug: 'host',
+    name: 'Hosting Credits Grant',
+    hours: { all: 2 },
+    tag: 'hosting',
+    image: hostingImage,
+    desc: 'host host host your stuff with a cool service :databaseparrot:',
+    details: [
+      'gives you 10$ of value to host host host your stuff!',
+    ],
+  },
+  {
+    slug: 'domain',
+    name: 'Domain Grant',
+    hours: { all: 2 },
+    tag: 'domain',
+    image: domainImage,
+    desc: 'reserve your spot on the vast web :cat-woah:',
+    details: [
+      'gives you 10$ to reserve your domain! enough for a year or so',
+    ],
+  },
+  {
     slug: 'chrome-extension-license',
     name: 'Chrome Extension License',
     hours: { all: 1 },
@@ -48,7 +72,7 @@ export const shopItems = [
     slug: 'browser-subscription-grant',
     name: 'Browser Subscription Grant',
     hours: { all: 5 },
-    tag: 'stackable',
+    tag: 'browser',
     image: browserImage,
     desc: 'get those cool paid browsers! better features means a better web for you! :vertex-icon-light:',
     details: [
