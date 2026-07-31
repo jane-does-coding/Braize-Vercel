@@ -7,6 +7,7 @@ import ramImage from '../assets/ram.webp';
 import headphoneImage from '../assets/headphones.jpg'
 import domainImage from '../assets/domain.jpg'
 import hostingImage from '../assets/server.jpg'
+import storageImage from '../assets/nvmessd.jpg'
 
 export const shopRegions = [
   { id: 'usa', name: 'USA' },
@@ -35,6 +36,20 @@ export const shopRegions = [
 ] as const;
 
 export const shopItems = [
+  {
+    slug: 'kingston-ssd',
+    name: 'Kingston NV3 1TB 2280 NVMe SSD',
+    hours: { us: 35 },
+    tag: 'nvme ssd',
+    image: storageImage,
+    desc: 'super fast and big NVMe for all your storage needs',
+    details: [
+      'very fast 6000 MB/s max sequential read and 5000 MB/s max sequential write!',
+      'fits in anything with an M.2 NVMe slot!',
+      'amazing PCLe 4.0 x4 interface',
+      'low power consumption and reduced heat!',
+    ],
+  },
   {
     slug: 'host',
     name: 'Hosting Credits Grant',
