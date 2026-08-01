@@ -39,7 +39,7 @@ export const shopItems = [
   {
     slug: 'kingston-ssd',
     name: 'Kingston NV3 1TB 2280 NVMe SSD',
-    hours: { us: 35 , canada: 40, mexico: 50, brazil: 70, uk: 40, ireland: 45, germany: 40, france: 40, italy: 40, spain: 40, netherlands: 40, belgium: 40, poland: 40, sweden: 45, india: 50, japan: 45, singapore: 40, australia: 45, uae: 45, 'saudi-arabia': 50, egypt: 50, 'south-africa': 50 },
+    hours: { usa: 35 , canada: 40, mexico: 50, brazil: 70, uk: 40, ireland: 45, germany: 40, france: 40, italy: 40, spain: 40, netherlands: 40, belgium: 40, poland: 40, sweden: 45, india: 50, japan: 45, singapore: 40, australia: 45, uae: 45, 'saudi-arabia': 50, egypt: 50, 'south-africa': 50 },
     tag: 'nvme ssd',
     image: storageImage,
     desc: 'super fast and big NVMe for all your storage needs :ultrafastparrot:',
