@@ -100,7 +100,8 @@ export const shopItems = [
   {
     slug: 'headphones',
     name: 'Soundcore Anker Space One ANC',
-    hours: { usa: 20, canada: 25, mexico: 30, brazil: 45, uk: 15, ireland: 30, germany: 30, france: 30, italy: 30, spain: 30, netherlands: 30, poland: 30, sweden: 35, japan: 30, uae: 10, 'saudi-arabia': 40, egypt: 40,  'south-africa': 30, estonia: 25},    tag: 'music',
+    hours: { usa: 20, canada: 25, mexico: 30, brazil: 45, uk: 15, ireland: 30, germany: 30, france: 30, italy: 30, spain: 30, netherlands: 30, poland: 30, sweden: 35, japan: 30, uae: 10, 'saudi-arabia': 40, egypt: 40, 'south-africa': 30, estonia: 25 },
+    tag: 'music',
     image: headphoneImage,
     desc: 'amazing headphones!!! vibe away to that music :vibesock:',
     details: [
