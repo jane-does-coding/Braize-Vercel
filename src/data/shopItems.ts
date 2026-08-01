@@ -32,6 +32,7 @@ export const shopRegions = [
   { id: 'saudi-arabia', name: 'Saudi Arabia' },
   { id: 'egypt', name: 'Egypt' },
   { id: 'south-africa', name: 'South Africa' },
+  { id: 'estonia', name: 'Estonia' },
 ] as const;
 
 export const shopItems = [
@@ -99,8 +100,7 @@ export const shopItems = [
   {
     slug: 'headphones',
     name: 'Soundcore Anker Space One ANC',
-    hours: { usa: 20, canada: 25, mexico: 30, brazil: 45, uk: 15, ireland: 30, germany: 30, france: 30, italy: 30, spain: 30, netherlands: 30, poland: 30, sweden: 35, japan: 30, uae: 10, 'saudi-arabia': 40, egypt: 40,  'south-africa': 30 },
-    tag: 'music',
+    hours: { usa: 20, canada: 25, mexico: 30, brazil: 45, uk: 15, ireland: 30, germany: 30, france: 30, italy: 30, spain: 30, netherlands: 30, poland: 30, sweden: 35, japan: 30, uae: 10, 'saudi-arabia': 40, egypt: 40,  'south-africa': 30, estonia: 25},    tag: 'music',
     image: headphoneImage,
     desc: 'amazing headphones!!! vibe away to that music :vibesock:',
     details: [
@@ -114,7 +114,7 @@ export const shopItems = [
   {
     slug: 'keyboard',
     name: 'AULA F75 PRO Wireless Mechanical Keyboard',
-    hours: { usa: 15, canada: 15, mexico: 15, brazil: 15, uk: 20, germany: 20, france: 25, italy: 15, spain: 15, netherlands: 15, belgium: 15, poland: 15, sweden: 20, japan: 15, singapore: 15, australia: 15, uae: 15, 'saudi-arabia': 20, egypt: 20, 'south-africa': 15 },
+    hours: { usa: 15, canada: 15, mexico: 15, brazil: 15, uk: 20, germany: 20, france: 25, italy: 15, spain: 15, netherlands: 15, belgium: 15, poland: 15, sweden: 20, japan: 15, singapore: 15, australia: 15, uae: 15, 'saudi-arabia': 20, egypt: 20, 'south-africa': 15, estonia: 20},
     tag: 'gear',
     image: keyboardImage,
     desc: 'very cool keyboard! time to type faster than ever! :meow_code:',
@@ -130,7 +130,7 @@ export const shopItems = [
   {
     slug: 'monitor',
     name: 'AOC Q27G3XMN Gaming Monitor',
-    hours: { usa: 50, canada: 70, mexico: 75, uk: 55, ireland: 55, germany: 50, france: 60, italy: 75, spain: 75, netherlands: 70, belgium: 75, poland: 75, sweden: 90, india: 80, japan: 60, singapore: 55, australia: 65, uae: 75, 'saudi-arabia': 90, egypt: 115, 'south-africa': 90 },
+    hours: { usa: 50, canada: 70, mexico: 75, uk: 55, ireland: 55, germany: 50, france: 60, italy: 75, spain: 75, netherlands: 70, belgium: 75, poland: 75, sweden: 90, india: 80, japan: 60, singapore: 55, australia: 65, uae: 75, 'saudi-arabia': 90, egypt: 115, 'south-africa': 90, estonia: 110 },
     tag: 'boss tier',
     image: monitorImage,
     desc: 'cool, big monitor for all your browsing needs! more screens more tabs! :earthquakyeyes:',
@@ -146,7 +146,7 @@ export const shopItems = [
   {
     slug: '16gb-ram',
     name: 'COSAIR Vengeance DDR5 16GB (2x8GB) RAM',
-    hours: { usa: 50, canada: 65, mexico: 60, brazil: 95, uk: 55, ireland: 135, germany: 55, france: 55, italy: 60, spain: 60, netherlands: 60, belgium: 60, poland: 60, sweden: 65, india: 65, japan: 55, singapore: 50, australia: 50, uae: 50, 'saudi-arabia': 55, egypt: 55, 'south-africa': 55 },
+    hours: { usa: 50, canada: 65, mexico: 60, brazil: 95, uk: 55, ireland: 135, germany: 55, france: 55, italy: 60, spain: 60, netherlands: 60, belgium: 60, poland: 60, sweden: 65, india: 65, japan: 55, singapore: 50, australia: 50, uae: 50, 'saudi-arabia': 55, egypt: 55, 'south-africa': 55, estonia: 67 },
     tag: 'boss tier',
     image: ramImage,
     desc: 'extremely hot and fast DDR5! enough to power a good computer :thonkage:',
