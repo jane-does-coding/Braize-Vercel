@@ -46,7 +46,7 @@ export const shopItems = [
     image: storageImage,
     desc: 'super fast and big NVMe for all your storage needs :ultrafastparrot:',
     details: [
-      'very fast 6000 MB/s max sequential read and 5000 MB/s max sequential write!',
+      'very fast 6000 MB/s max sequential read and 4000 MB/s max sequential write!',
       'fits in anything with an M.2 NVMe slot!',
       'amazing PCLe 4.0 x4 interface',
       'low power consumption and reduced heat!',
