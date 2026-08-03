@@ -35,14 +35,15 @@ export const shopRegions = [
   { id: 'egypt', name: 'Egypt' },
   { id: 'south-africa', name: 'South Africa' },
   { id: 'estonia', name: 'Estonia' },
-  { id: 'nz', name: 'New Zealand'}
+  { id: 'nz', name: 'New Zealand'},
+  { id: 'pakistan', name: 'Pakistan' }
 ] as const;
 
 export const shopItems = [
   {
     slug: 'rk-royal',
     name: 'RK Royal KLUDGE N80 Low Profile Mechanical Keyboard',
-    hours: { usa: 15,  canada: 20, mexico: 20, uk: 20, ireland: 20, germany: 20, france: 20, italy: 20, spain: 20, netherlands: 20, belgium: 20, poland: 20, sweden: 20, japan: 20, singapore: 20, uae: 20, 'saudi-arabia': 25, egypt: 25, 'south-africa': 20, estonia: 20, nz: 25 },
+    hours: { usa: 15,  canada: 20, mexico: 20, uk: 20, ireland: 20, germany: 20, france: 20, italy: 20, spain: 20, netherlands: 20, belgium: 20, poland: 20, sweden: 20, japan: 20, singapore: 20, uae: 20, 'saudi-arabia': 25, egypt: 25, 'south-africa': 20, estonia: 20, nz: 25, pakistan: 40 },
     tag: 'low-profile keyboard',
     image: keeb2Image,
     desc: 'low profile mechanical keyboard to not get carpal tunnel and type away! :vibepartycat:',
@@ -59,7 +60,7 @@ export const shopItems = [
   {
     slug: 'kingston-ssd',
     name: 'Kingston NV3 1TB 2280 NVMe SSD',
-    hours: { usa: 35 , canada: 40, mexico: 50, brazil: 70, uk: 40, ireland: 45, germany: 40, france: 40, italy: 40, spain: 40, netherlands: 40, belgium: 40, poland: 40, sweden: 45, india: 50, japan: 45, singapore: 40, australia: 45, uae: 45, 'saudi-arabia': 50, egypt: 50, 'south-africa': 50, estonia: 40, nz: 35 },
+    hours: { usa: 35 , canada: 40, mexico: 50, brazil: 70, uk: 40, ireland: 45, germany: 40, france: 40, italy: 40, spain: 40, netherlands: 40, belgium: 40, poland: 40, sweden: 45, india: 50, japan: 45, singapore: 40, australia: 45, uae: 45, 'saudi-arabia': 50, egypt: 50, 'south-africa': 50, estonia: 40, nz: 35, pakistan: 55 },
     tag: 'nvme ssd',
     image: storageImage,
     desc: 'super fast and big NVMe for all your storage needs :ultrafastparrot:',
@@ -149,7 +150,7 @@ export const shopItems = [
   {
     slug: 'keyboard',
     name: 'AULA F75 PRO Wireless Mechanical Keyboard',
-    hours: { usa: 15, canada: 15, mexico: 15, brazil: 15, uk: 20, germany: 20, france: 25, italy: 15, spain: 15, netherlands: 15, belgium: 15, poland: 15, sweden: 20, japan: 15, singapore: 15, australia: 15, uae: 15, 'saudi-arabia': 20, egypt: 20, 'south-africa': 15, estonia: 20, nz: 15 },
+    hours: { usa: 15, canada: 15, mexico: 15, brazil: 15, uk: 20, germany: 20, france: 25, italy: 15, spain: 15, netherlands: 15, belgium: 15, poland: 15, sweden: 20, japan: 15, singapore: 15, australia: 15, uae: 15, 'saudi-arabia': 20, egypt: 20, 'south-africa': 15, estonia: 20, nz: 15, pakistan: 40 },
     tag: 'gear',
     image: keyboardImage,
     desc: 'very cool keyboard! time to type faster than ever! :meow_code:',
@@ -165,7 +166,7 @@ export const shopItems = [
   {
     slug: 'monitor',
     name: 'AOC Q27G3XMN Gaming Monitor',
-    hours: { usa: 50, canada: 70, mexico: 75, uk: 55, ireland: 55, germany: 50, france: 60, italy: 75, spain: 75, netherlands: 70, belgium: 75, poland: 75, sweden: 90, india: 80, japan: 60, singapore: 55, australia: 65, uae: 75, 'saudi-arabia': 90, egypt: 115, 'south-africa': 90, estonia: 110, nz: 55 },
+    hours: { usa: 50, canada: 70, mexico: 75, uk: 55, ireland: 55, germany: 50, france: 60, italy: 75, spain: 75, netherlands: 70, belgium: 75, poland: 75, sweden: 90, india: 80, japan: 60, singapore: 55, australia: 65, uae: 75, 'saudi-arabia': 90, egypt: 115, 'south-africa': 90, estonia: 110, nz: 55, pakistan: 145 },
     tag: 'boss tier',
     image: monitorImage,
     desc: 'cool, big monitor for all your browsing needs! more screens more tabs! :earthquakyeyes:',
@@ -181,7 +182,7 @@ export const shopItems = [
   {
     slug: '16gb-ram',
     name: 'COSAIR Vengeance DDR5 16GB (2x8GB) RAM',
-    hours: { usa: 50, canada: 65, mexico: 60, brazil: 95, uk: 55, ireland: 135, germany: 55, france: 55, italy: 60, spain: 60, netherlands: 60, belgium: 60, poland: 60, sweden: 65, india: 65, japan: 55, singapore: 50, australia: 50, uae: 50, 'saudi-arabia': 55, egypt: 55, 'south-africa': 55, estonia: 67, nz: 50 },
+    hours: { usa: 50, canada: 65, mexico: 60, brazil: 95, uk: 55, ireland: 135, germany: 55, france: 55, italy: 60, spain: 60, netherlands: 60, belgium: 60, poland: 60, sweden: 65, india: 65, japan: 55, singapore: 50, australia: 50, uae: 50, 'saudi-arabia': 55, egypt: 55, 'south-africa': 55, estonia: 70, nz: 50, pakistan: 70 },
     tag: 'boss tier',
     image: ramImage,
     desc: 'extremely hot and fast DDR5! enough to power a good computer :thonkage:',
