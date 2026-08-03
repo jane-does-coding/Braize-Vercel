@@ -8,6 +8,7 @@ import headphoneImage from '../assets/headphones.jpg'
 import domainImage from '../assets/domain.jpg'
 import hostingImage from '../assets/server.jpg'
 import storageImage from '../assets/nvmessd.jpg'
+import keeb2Image from '../assets/newkeeb.jpg'
 
 export const shopRegions = [
   { id: 'usa', name: 'USA' },
@@ -38,6 +39,23 @@ export const shopRegions = [
 ] as const;
 
 export const shopItems = [
+  {
+    slug: 'rk-royal',
+    name: 'RK Royal KLUDGE N80 Low Profile Mechanical Keyboard',
+    hours: { usa: 15,  canada: 20, mexico: 20, uk: 20, ireland: 20, germany: 20, france: 20, italy: 20, spain: 20, netherlands: 20, belgium: 20, poland: 20, sweden: 20, japan: 20, singapore: 20, uae: 20, 'saudi-arabia': 25, egypt: 25, 'south-africa': 20, estonia: 20, nz: 25 },
+    tag: 'low-profile keyboard',
+    image: keeb2Image,
+    desc: 'low profile mechanical keyboard to not get carpal tunnel and type away! :vibepartycat:',
+    details: [
+      'an extremely cool dynamic display which shows custom GIFs, dates, connection modes, WIN/MAX layouts, and battery status on its compact screen.',
+      'control volume, connection modes, and color modes with a simple click or twist of the knob!',
+      'has bluetooth 5.0, 2.4ghz wireless, and a usb-c wired mode for all your connectivety needs!',
+      'low-profile switches for a faster response time and effortless typing experience',
+      'has a top-mounted structure for a firm keystroke and better typing feedback!',
+      'very sound heavy duty base with no wobbling!',
+      'equipped with a dual layer sound-absorbing foam and a silicon dampening pad for less noise!',
+    ],
+  },
   {
     slug: 'kingston-ssd',
     name: 'Kingston NV3 1TB 2280 NVMe SSD',
@@ -115,7 +133,7 @@ export const shopItems = [
   },
   {
     slug: 'headphones',
-    name: 'Soundcore Anker Space One ANC',
+    name: 'Soundcore Anker Space One ANC Headphones',
     hours: { usa: 20, canada: 25, mexico: 30, brazil: 45, uk: 15, ireland: 30, germany: 30, france: 30, italy: 30, spain: 30, netherlands: 30, poland: 30, sweden: 35, japan: 30, uae: 10, 'saudi-arabia': 40, egypt: 40, 'south-africa': 30, estonia: 25 },
     tag: 'music',
     image: headphoneImage,
