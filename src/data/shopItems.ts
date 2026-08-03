@@ -53,7 +53,7 @@ export const shopItems = [
       'low-profile switches for a faster response time and effortless typing experience',
       'has a top-mounted structure for a firm keystroke and better typing feedback!',
       'very sound heavy duty base with no wobbling!',
-      'equipped with a dual layer sound-absorbing foam and a silicon dampening pad for less noise!',
+      'equipped with a dual layer sound-absorbing foam and a silicon dampening pad for less noise!'
     ],
   },
   {
@@ -67,7 +67,7 @@ export const shopItems = [
       'very fast 6000 MB/s max sequential read and 4000 MB/s max sequential write!',
       'fits in anything with an M.2 NVMe slot!',
       'amazing PCLe 4.0 x4 interface',
-      'low power consumption and reduced heat!',
+      'low power consumption and reduced heat!'
     ],
   },
   {
@@ -78,7 +78,7 @@ export const shopItems = [
     image: hostingImage,
     desc: 'host host host your stuff with a cool service :vercel:',
     details: [
-      'gives you 10$ of value to host host host your stuff!',
+      'gives you 10$ of value to host host host your stuff!'
     ],
   },
   {
@@ -89,7 +89,7 @@ export const shopItems = [
     image: domainImage,
     desc: 'reserve your spot on the vast web :cat-woah:',
     details: [
-      'gives you 10$ to reserve your domain! enough for a year or so',
+      'gives you 10$ to reserve your domain! enough for a year or so'
     ],
   },
   {
@@ -100,7 +100,7 @@ export const shopItems = [
     image: chromeImage,
     desc: 'make your own extension and launch it on the chrome web store :O :chrome-unstable:',
     details: [
-       'covers the cost of the chrome extension license',
+       'covers the cost of the chrome extension license'
     ],
   },
   {
