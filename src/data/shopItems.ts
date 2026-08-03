@@ -118,7 +118,7 @@ export const shopItems = [
   },
   {
     slug: 'mouse',
-    name: 'Razer Basilik V3 X HyperSpeed Mouse',
+    name: 'Razer Basilisk V3 X HyperSpeed Mouse',
     hours: { usa: 10, canada: 10, mexico: 10, brazil: 15, uk: 15, ireland: 15, germany: 10, france: 10 },
     tag: 'gear',
     image: mouseImage,
